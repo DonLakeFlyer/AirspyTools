@@ -287,7 +287,7 @@ if __name__ == '__main__':
         sys.exit(0)
 
     if sys.argv[1] != 'create':
-        print("Usage: python3 config.py [create [output_file]]")
+        print("Usage: python3 airspy_tools_config.py [create [output_file]]")
         sys.exit(1)
 
     filename = sys.argv[2] if len(sys.argv) > 2 else 'capture_config.json'

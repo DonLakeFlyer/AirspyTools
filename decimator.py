@@ -13,7 +13,7 @@ import sys
 import time
 from typing import Optional
 from scipy import signal
-from config import PulseDetectConfig
+from airspy_tools_config import AirspyToolsConfig
 
 
 class Decimator:
@@ -21,7 +21,7 @@ class Decimator:
 
     def __init__(
         self,
-        config: PulseDetectConfig,
+        config: AirspyToolsConfig,
         output_port: Optional[int] = None,
         stages: tuple = (8, 8, 6),
         stream_logs: bool = False,
@@ -30,7 +30,7 @@ class Decimator:
         Initialize the decimator.
 
         Args:
-            config: PulseDetectConfig instance
+            config: AirspyToolsConfig instance
             output_port: Port for output ZeroMQ publisher (if None, uses config)
             stages: Tuple of decimation factors (1-3 stages, default: (8, 8, 6))
         """
@@ -348,7 +348,7 @@ def main():
 
     # Load configuration
     try:
-        config = PulseDetectConfig.from_file(args.config)
+        config = AirspyToolsConfig.from_file(args.config)
         print(f"Loaded configuration from {args.config}\n")
     except Exception as e:
         print(f"Error loading config file: {e}")

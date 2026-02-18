@@ -14,18 +14,18 @@ import time
 
 # Import our ctypes wrapper for libairspyhf
 import airspyhf_wrapper as airspy
-from config import PulseDetectConfig
+from airspy_tools_config import AirspyToolsConfig
 
 
 class AirspyHFReader:
     """Manages Airspy HF+ device and ZeroMQ streaming."""
 
-    def __init__(self, config: PulseDetectConfig, stream_logs: bool = False):
+    def __init__(self, config: AirspyToolsConfig, stream_logs: bool = False):
         """
         Initialize the reader system.
 
         Args:
-            config: PulseDetectConfig instance with device and ZeroMQ settings
+            config: AirspyToolsConfig instance with device and ZeroMQ settings
         """
         self.config = config
         self.stream_logs = stream_logs
@@ -314,7 +314,7 @@ def main():
 
     # Load configuration
     try:
-        config = PulseDetectConfig.from_file(args.config)
+        config = AirspyToolsConfig.from_file(args.config)
         print(f"Loaded configuration from {args.config}\n")
     except Exception as e:
         print(f"Error loading config file: {e}")
